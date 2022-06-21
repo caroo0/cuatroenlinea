@@ -1,64 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Cuatro en linea 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Juego de cuatro en linea, consiste en colocar cuatro fichas en linea vertical horizontal o diagonal, se juega de a dos personas por turnos; esta hecho en php con laravel y ddev.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Requisitos 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para poder usar este repositorio será necesario contar con los siguientes programas(los links proporcionados son los del sitio oficial correspondiente).
+-   DDEV ([https://ddev.readthedocs.io/en/stable/](https://ddev.readthedocs.io/en/stable/))
+-   Docker Desktop ([https://docs.docker.com/desktop/](https://docs.docker.com/desktop/))
+-   Composer ([https://getcomposer.org/download/](https://getcomposer.org/download/))
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Pasos a seguir para el correcto funcionamiento 
 
-## Learning Laravel
+El primer paso es descargar el repositorio en el directorio deseado usando:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> `git clone https://github.com/caroo0/cuatroenlinea`
 
-## Laravel Sponsors
+**Como configurar ddev**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+ - Lo primero será abrir la consola con el directorio del que recién se descargo y ejecutamos el siguiente comando.
 
-### Premium Partners
+> `ddev config`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Acá nos preguntara el nombre que le queremos asignar a nuestro proyecto, este puede ser el mismo que vine por defecto. Después preguntara donde queremos guardar la raíz del proyecto, la cual no hay problemas al usar la misma en la que nos encontramos. y para finalizar nos preguntara que tipo de proyecto es, a tal pregunta responderemos que es un proyecto de tipo laravel. 
 
-## Contributing
+**Verificar con composer**
+ El gestor que usaremos para las dependencias de php es composer, lo actualizaremos con el comando:
+ 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+> `ddev composer install`
 
-## Code of Conduct
+**Creación de archivo de ambiente**                       
+Para asegurarnos que las variables del ambiente están bien copiadas usaremos los siguientes comandos 
+> `ls -la`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+> `cp .env.example .env`
 
-## Security Vulnerabilities
+> `echo "WWWGROUP=1000" >> .env`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+> `echo "WWWUSER=1000" >> .env`
 
-## License
+**Clave**
+Crearemos una clave para nuestro proyecto 
+> `php artisan key:generate`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Corriendo la aplicación**
+Cuando ya hayamos completado los steps de arriba saldremos del servidor local con:
+
+> `exit`
+
+después reiniciamos el proyecto
+
+> `ddev restart`
+
+luego en la consola nos dará la dirección en la que esta alojada la pagina web, para entrar le agregaremos /jugar/1 a la dirección y comenzara el juego.
+
+**Cerrar**
+Para cerrar la aplicación usaremos 
+
+> `ddev poweroff`
+
+**JUGAR**
+Para jugar si ya configuraste todo, o es necesario que lo vuelvas a hacer, para poder jugar lo que deberás hacer será entrar a la URL del paso " Correr la aplicación" y correr el siguiente comando:
+
+> `ddev strart`
