@@ -22,6 +22,14 @@ class Tablero {
 		}
 	}
 
+	public function alto(){
+		return $this->alto;
+	}
+
+	public function ancho(){
+		return $this->ancho;
+	}
+
 	public function colocar(int $columna, Ficha $ficha){
 		for($contadorColumnas = $this->alto; $contadorColumnas != 0; $contadorColumnas--){
 			if($this->tablero[$contadorColumnas][$columna]->color =="Vacio"){
