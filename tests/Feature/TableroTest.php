@@ -6,17 +6,19 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class UserTest extends TestCase
-{
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
+class TableroTest extends TestCase
+{
+    public function testCasillasTablero(){
+        $contadorCasillas = 0;
+        $tablero = new Tablero(rand(3,30), rand(3,30));
+        
+        for ($x = 0; $x < $tablero->ancho(); $x++) {
+            for ($y = 0; $y < $tablero->alto(); $y++) {
+                $contadorCasillas++;
+            }
+        }
+        
+        $this->assertEquals($tablero->ancho() * $tablero->alto(), $contadorCasillas);
     }
 }
