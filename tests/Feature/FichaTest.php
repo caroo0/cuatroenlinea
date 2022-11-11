@@ -6,17 +6,27 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class UserTest extends TestCase
-{
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $response = $this->get('/');
+class FichaTest extends TestCase{
 
-        $response->assertStatus(200);
+    public function testColor()
+    {
+        $this->expectNotToPerformAssertions();
+        for($x = 15; $x < 15; $x++){
+            $randomColor = rand(0,1);
+            $color = '';
+
+            if(!$randomColor)
+            {
+                $color = 'rojo';
+                $ficha = new Ficha($color);
+                $this->assertEquals($ficha->color(), $color);
+            } 
+            else 
+            {
+                $color = 'azul';
+                $ficha = new Ficha($color);
+                $this->assertEquals($ficha->color(), $color);
+            }
+        }
     }
 }
